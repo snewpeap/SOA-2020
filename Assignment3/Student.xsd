@@ -22,6 +22,7 @@
         </sequence>
     </complexType>
 
+	<!-- 个人所选课程信息，包含课程信息和该门课程的各种成绩信息列表 -->
     <complexType name="个人课程信息">
         <sequence>
             <element name="课程信息" type="tns:课程信息类型"/>
@@ -29,6 +30,7 @@
         </sequence>
     </complexType>
 
+	<!-- 长度为9的学号类型 -->
     <simpleType name="学号类型">
     	<restriction base="string">
             <length value="9"/>

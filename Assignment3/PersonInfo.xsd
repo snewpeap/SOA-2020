@@ -13,6 +13,7 @@
         </sequence>
     </complexType>
 
+	<!-- 性别枚举类型 -->
     <simpleType name="性别类型">
         <restriction base="string">
             <enumeration value="男"/>
