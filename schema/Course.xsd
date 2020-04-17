@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema"
+        xmlns:tns="http://jw.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+
+    <element name="课程信息" type="tns:课程信息类型"/>
+
+    <!-- 参考了教务网上的课程信息格式 -->
+    <complexType name="课程信息类型">
+        <sequence>
+            <element name="课程编号" type="tns:课程编号类型"/>
+            <element name="课程名称" type="string"/>
+            <element name="课程教师">
+                <complexType>
+                    <!-- 一门课有至少一个教师，可能有多个教师 -->
+                    <sequence maxOccurs="unbounded">
+                        <element name="教师" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="学期" type="tns:学期类型"/>
+            <element name="上课校区" type="tns:校区类型"/>
+            <element name="上课地点" type="string"/>
+            <element name="课程类型" type="tns:课程类型"/>
+        </sequence>
+    </complexType>
+
+	<!-- 校区枚举类型 -->
+    <simpleType name="校区类型">
+        <restriction base="string">
+            <enumeration value="仙林校区"/>
+            <enumeration value="鼓楼校区"/>
+        </restriction>
+    </simpleType>
+    
+    <!-- 课程类型枚举类型，不完全 -->
+    <simpleType name="课程类型">
+        <restriction base="string">
+            <enumeration value="核心"/>
+            <enumeration value="平台"/>
+            <enumeration value="选修"/>
+            <enumeration value="通修"/>
+            <enumeration value="通识"/>
+        </restriction>
+    </simpleType>
+    
+    <!-- 学期类型，包含学年和第几学期 -->
+    <complexType name="学期类型">
+    	<sequence>
+    		<element name="学年" type="gYear"/>
+    		<element name="学期数" type="nonNegativeInteger"/>
+    	</sequence>
+    </complexType>
+
+	<!-- 长度为8的课程编号 -->
+    <simpleType name="课程编号类型">
+    	<restriction base="string">
+            <length value="8"/>
+    	</restriction>
+    </simpleType>
+</schema>
