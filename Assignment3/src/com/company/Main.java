@@ -14,12 +14,14 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 
 public class Main {
     static HashMap<String,String> commonValues;
+    static ArrayList<String> scoreTypes;
 
     public static void main(String[] args){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -40,7 +42,7 @@ public class Main {
 
         // Read from excel file
         File studentExcelFile = new File("./data/studentMsg.xlsx");
-        FileInputStream is = null;// 获取文件输入流
+        FileInputStream is = null;
         try {
             is = new FileInputStream(studentExcelFile);
         } catch (FileNotFoundException e) {
@@ -54,6 +56,22 @@ public class Main {
         }
         XSSFSheet std_sheet = workbook2003.getSheetAt(0);
         int studentC = std_sheet.getLastRowNum();
+
+
+        File courseExcelFile = new File("./data/courseMsg.xlsx");
+        FileInputStream is_course = null;
+        try {
+            is_course = new FileInputStream(courseExcelFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        XSSFWorkbook workbook2003_course = null;
+        try {
+            workbook2003_course = new XSSFWorkbook(is_course);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        XSSFSheet course_sheet = workbook2003_course.getSheetAt(0);
 
         //Generate elements
         Element root = doc.createElementNS(njuURl_jw, "学生列表");
@@ -108,7 +126,61 @@ public class Main {
             std_number.appendChild(doc.createTextNode(std_row.getCell(3).getStringCellValue()));
             std.appendChild(std_number);
 
-            //TODO Add score list
+            //Add score List
+            Element std_courses = doc.createElementNS(njuURl_jw,"个人课程");
+            std.appendChild(std_courses);
+            for(int j = 1; j < 6; j++){
+                XSSFRow course_row = course_sheet.getRow(j);
+
+                Element std_course = doc.createElementNS(njuURl_jw,"课程");
+                Element course_info = doc.createElementNS(njuURl_jw,"课程信息");
+                Element course_score_list = doc.createElementNS(njuURl_jw,"课程成绩列表");
+                std_course.appendChild(course_info);
+                std_course.appendChild(course_score_list);
+
+                course_row.getCell(0).setCellType(CellType.STRING);
+                course_row.getCell(3).setCellType(CellType.STRING);
+                course_row.getCell(4).setCellType(CellType.STRING);
+                course_info.appendChild(doc.createElementNS(njuURl_jw,"课程编号"))
+                        .appendChild(doc.createTextNode(course_row.getCell(0).getStringCellValue()));
+                course_info.appendChild(doc.createElementNS(njuURl_jw,"课程名称"))
+                        .appendChild(doc.createTextNode(course_row.getCell(1).getStringCellValue()));
+                course_info.appendChild(doc.createElementNS(njuURl_jw,"课程教师"))
+                        .appendChild(doc.createElementNS(njuURl_jw,"教师"))
+                        .appendChild(doc.createTextNode(course_row.getCell(2).getStringCellValue()));
+                Element course_term = doc.createElementNS(njuURl_jw,"学期");
+                Element term_year = doc.createElementNS(njuURl_jw,"学年");
+                term_year.appendChild(doc.createTextNode(course_row.getCell(3).getStringCellValue()));
+                Element term_number = doc.createElementNS(njuURl_jw,"学期数");
+                term_number.appendChild(doc.createTextNode(course_row.getCell(4).getStringCellValue()));
+                course_term.appendChild(term_year);
+                course_term.appendChild(term_number);
+                course_info.appendChild(course_term);
+                course_info.appendChild(doc.createElementNS(njuURl_jw,"上课校区"))
+                        .appendChild(doc.createTextNode(course_row.getCell(5).getStringCellValue()));
+                course_info.appendChild(doc.createElementNS(njuURl_jw,"上课地点"))
+                        .appendChild(doc.createTextNode(course_row.getCell(6).getStringCellValue()));
+                course_info.appendChild(doc.createElementNS(njuURl_jw,"课程类型"))
+                        .appendChild(doc.createTextNode(course_row.getCell(7).getStringCellValue()));
+
+                boolean isOverSixty = true;
+                for(int k = 0; k < 3; k++){
+                    if(i == 6 && j == 1 && k == 0){
+                        isOverSixty = false;
+                    }
+
+                    Element course_score = doc.createElementNS(njuURl_jw,"成绩");
+                    course_score.appendChild(std_number.cloneNode(true));
+                    course_score.appendChild(doc.createElementNS(njuURl_jw,"得分"))
+                            .appendChild(doc.createTextNode(generateRandomScore(isOverSixty)));
+                    Element score_element = doc.createElementNS(njuURl_jw,"课程成绩");
+                    score_element.setAttribute("课程编号",course_row.getCell(0).getStringCellValue());
+                    score_element.setAttribute("成绩性质",scoreTypes.get(k));
+                    score_element.appendChild(course_score);
+                    course_score_list.appendChild(score_element);
+                }
+                std_courses.appendChild(std_course);
+            }
         }
 
 
@@ -140,15 +212,16 @@ public class Main {
         commonValues.put("depart_phone","025-83621369");
         commonValues.put("depart_fax","025-83621370");
 
-        commonValues.put("score_midterm","期中成绩");
-        commonValues.put("score_final","期末成绩");
-        commonValues.put("score_overall","总评成绩");
+        scoreTypes = new ArrayList<String>();
+        scoreTypes.add("期中成绩");
+        scoreTypes.add("期末成绩");
+        scoreTypes.add("总评成绩");
     }
 
-    static int generateRandomScore(boolean isOverSixty){
+    static String generateRandomScore(boolean isOverSixty){
         if(!isOverSixty){
-            return (int) (Math.random() * 60);
+            return String.valueOf((int) (Math.random() * 60));
         }
-        return Math.min((int)(Math.random() * 100 + 60),95);
+        return String.valueOf(Math.min((int)(Math.random() * 100 + 60),95));
     }
 }
