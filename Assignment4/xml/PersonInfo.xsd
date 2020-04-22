@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.nju.edu.cn/schema"
+        xmlns:tns="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+    <include schemaLocation="Department.xsd"/>
+
+    <complexType name="个人基本信息类型">
+        <sequence>
+            <element name="姓名" type="string"/>
+            <element name="性别" type="tns:性别类型"/>
+            <element name="出生日期" type="date"/>
+            <element name="单位部门" type="tns:单位部门信息类型"/>
+        </sequence>
+    </complexType>
+
+	<!-- 性别枚举类型 -->
+    <simpleType name="性别类型">
+        <restriction base="string">
+            <enumeration value="男"/>
+            <enumeration value="女"/>
+            <enumeration value="其他"/>
+        </restriction>
+    </simpleType>
+</schema>

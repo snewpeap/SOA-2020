@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a328da13-0d90-4f30-80a4-a56040d05f05" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="XSLT Stylesheet" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1at7dRTNYkhpjv9jqgdBln7AXrh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+  </component>
+  <component name="RunManager">
+    <configuration name="XSLT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="XSLT" />
+      <module name="Assignment4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.XSLT" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a328da13-0d90-4f30-80a4-a56040d05f05" name="Default Changelist" comment="" />
+      <created>1587543122344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587543122344</updated>
+      <workItem from="1587543125826" duration="16683000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="25" key="#XSLT_File_Associations" timestamp="1587555185223">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="25" key="#XSLT_File_Associations/0.0.1366.728@0.0.1366.728" timestamp="1587555185223" />
+    <state x="413" y="122" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1587544471950">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="122" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587544471950" />
+    <state x="463" y="65" key="FileChooserDialogImpl" timestamp="1587554480907">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="65" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587554480907" />
+    <state width="1323" height="82" key="GridCell.Tab.0.bottom" timestamp="1587559868467">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="82" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587559868467" />
+    <state width="1323" height="82" key="GridCell.Tab.0.center" timestamp="1587559868467">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="82" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587559868467" />
+    <state width="1323" height="82" key="GridCell.Tab.0.left" timestamp="1587559868467">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="82" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587559868467" />
+    <state width="1323" height="82" key="GridCell.Tab.0.right" timestamp="1587559868467">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="82" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587559868467" />
+    <state x="323" y="67" key="NewModule_or_Project.wizard" timestamp="1587554500548">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="323" y="67" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1587554500548" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="Assignment4" type="b2602c69:ProjectViewProjectNode" />
+        <item name="Assignment4" type="462c0819:PsiDirectoryNode" />
+      </path>
+      <path>
+        <item name="Assignment4" type="b2602c69:ProjectViewProjectNode" />
+        <item name="Assignment4" type="462c0819:PsiDirectoryNode" />
+        <item name="xml" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+</project>
