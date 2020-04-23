@@ -6,9 +6,6 @@
     <xsl:key name="course" match="*[name()='课程成绩']" use="concat(@课程编号,'+',@成绩性质)"/>
     <xsl:template match="/*[name()='学生列表']">
         <xsl:element name="课程成绩列表" >
-            <!--xsl:attribute name="xmlns">http://jw.nju.edu.cn/schema</xsl:attribute>
-            <xsl:attribute name="xmlns:xsi">http://www.w3.org/2001/XMLSchema-instance/</xsl:attribute>
-            <xsl:attribute name="xsi:schemaLocation">http://jw.nju.edu.cn/schema ScoreList.xsd</xsl:attribute-->
             <xsl:apply-templates
                     select="//*[name()='课程成绩'][generate-id(.)=generate-id(key('course',concat(@课程编号,'+',@成绩性质)))]"
                     mode="inGroup" />
