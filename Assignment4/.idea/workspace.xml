@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="XSLT Stylesheet" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -36,7 +36,14 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.SAX">
+    <configuration name="SAX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SAX" />
+      <module name="Assignment4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="XSLT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="XSLT" />
       <module name="Assignment4" />
@@ -46,6 +53,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SAX" />
         <item itemvalue="Application.XSLT" />
       </list>
     </recent_temporary>
@@ -63,7 +71,7 @@
       <workItem from="1587543125826" duration="22650000" />
       <workItem from="1587600989464" duration="6079000" />
       <workItem from="1587621532025" duration="2665000" />
-      <workItem from="1587632642807" duration="3266000" />
+      <workItem from="1587632642807" duration="7838000" />
     </task>
     <servers />
   </component>
@@ -75,34 +83,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="25" key="#XSLT_File_Associations/0.0.1366.728@0.0.1366.728" timestamp="1587555185223" />
-    <state x="413" y="122" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1587544471950">
+    <state x="413" y="122" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1587639939623">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="122" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587544471950" />
-    <state x="463" y="65" key="FileChooserDialogImpl" timestamp="1587554480907">
+    <state x="413" y="122" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587639939623" />
+    <state x="463" y="65" key="FileChooserDialogImpl" timestamp="1587639358379">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="65" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587554480907" />
-    <state width="1323" height="153" key="GridCell.Tab.0.bottom" timestamp="1587635481449">
+    <state x="463" y="65" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587639358379" />
+    <state width="1323" height="53" key="GridCell.Tab.0.bottom" timestamp="1587643638969">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="153" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587635481449" />
-    <state width="1323" height="153" key="GridCell.Tab.0.center" timestamp="1587635481449">
+    <state width="1323" height="53" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587643638969" />
+    <state width="1323" height="53" key="GridCell.Tab.0.center" timestamp="1587643638968">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="153" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587635481449" />
-    <state width="1323" height="153" key="GridCell.Tab.0.left" timestamp="1587635481448">
+    <state width="1323" height="53" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587643638968" />
+    <state width="1323" height="53" key="GridCell.Tab.0.left" timestamp="1587643638968">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="153" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587635481448" />
-    <state width="1323" height="153" key="GridCell.Tab.0.right" timestamp="1587635481449">
+    <state width="1323" height="53" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587643638968" />
+    <state width="1323" height="53" key="GridCell.Tab.0.right" timestamp="1587643638969">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="153" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587635481449" />
-    <state x="323" y="67" key="NewModule_or_Project.wizard" timestamp="1587554500548">
+    <state width="1323" height="53" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587643638969" />
+    <state x="323" y="67" key="NewModule_or_Project.wizard" timestamp="1587639397541">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="323" y="67" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1587554500548" />
+    <state x="323" y="67" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1587639397541" />
     <state x="317" y="0" key="SettingsEditor" timestamp="1587633019620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
