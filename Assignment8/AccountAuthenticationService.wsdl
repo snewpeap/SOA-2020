@@ -7,8 +7,8 @@
         xmlns:wsoap= "http://www.w3.org/ns/wsdl/soap"
         xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
     <types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/wsdl" >
-            <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="Student.xsd"/>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema" >
+            <xs:include schemaLocation="Student.xsd"/>
             <xs:element name="invalidDataError" type="xs:string" />
         </xs:schema>
     </types>
