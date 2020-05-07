@@ -19,6 +19,7 @@
                     </sequence>
                 </complexType>
             </element>
+          <element name="权限" type="tns:权限类型"/>
         </sequence>
     </complexType>
 
@@ -36,4 +37,13 @@
             <length value="9"/>
     	</restriction>
     </simpleType>
+
+  <!-- 权限信息 -->
+  <complexType name="权限类型">
+    <attribute name="图书馆" type="boolean"/>
+    <attribute name="教学楼A" type="boolean"/>
+    <attribute name="教学楼B" type="boolean"/>
+    <attribute name="学生食堂" type="boolean"/>
+    <attribute name="教职工食堂" type="boolean"/>
+  </complexType>
 </schema>
