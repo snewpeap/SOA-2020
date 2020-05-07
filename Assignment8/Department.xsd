@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.nju.edu.cn/schema"
+        xmlns:tns="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+    <element name="单位部门信息" type="tns:单位部门信息类型"/>
+
+    <!-- 参考了学校各单位部门的网站 -->
+    <complexType name="单位部门信息类型">
+        <sequence>
+            <element name="单位" type="tns:单位类型"/>
+            <element name="地址" type="string"/>
+            <element name="电话" type="tns:通讯类型"/>
+            <element name="传真" type="tns:通讯类型"/>
+        </sequence>
+    </complexType>
+
+    <!-- 区号+号码的形式，能够用于电话和传真号 -->
+    <simpleType name="通讯类型">
+        <restriction base="string">
+            <pattern value="\d{3}-\d{8}"/>
+        </restriction>
+    </simpleType>
+
+    <!-- 除系/院等单位以外，学校的其他直属/行政部门等 -->
+    <complexType name="单位类型">
+        <choice>
+    		<!-- 不设系的学院、独立的系、学院下设的系，或直属/行政部门 -->
+            <group ref="tns:院系"/>
+        	<element name="系" type="string"/>
+            <element name="部门" type="string"/>
+        </choice>
+    </complexType>
+
+    <group name="院系">
+        <sequence>
+            <element name="学院" type="string"/>
+            <element name="系" type="string" minOccurs="0"/>
+        </sequence>
+    </group>
+
+</schema>
