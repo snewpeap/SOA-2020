@@ -17,10 +17,10 @@ public class CourseInfo {
     private String name;
 
     @XmlElement(name = "课程教师", namespace = "http://jw.nju.edu.cn/schema")
-    private List<Teacher> teachers=new ArrayList<>();
+    private Teacher teachers=new Teacher();
 
     @XmlElement(name = "学期", namespace = "http://jw.nju.edu.cn/schema")
-    private Term term;
+    private Term term=new Term();
 
     @XmlElement(name = "上课校区", namespace = "http://jw.nju.edu.cn/schema")
     private String campus;
@@ -34,13 +34,13 @@ public class CourseInfo {
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Teacher{
         @XmlElement(name = "教师", namespace = "http://jw.nju.edu.cn/schema")
-        private String teacher;
+        private List<String> teacher=new ArrayList<>();
 
-        public String getTeacher() {
+        public List<String> getTeacher() {
             return teacher;
         }
 
-        public void setTeacher(String teacher) {
+        public void setTeacher(List<String> teacher) {
             this.teacher = teacher;
         }
     }
@@ -93,11 +93,11 @@ public class CourseInfo {
         this.address = address;
     }
 
-    public List<Teacher> getTeachers() {
+    public Teacher getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
+    public void setTeachers(Teacher teachers) {
         this.teachers = teachers;
     }
 

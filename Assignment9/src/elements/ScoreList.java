@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ScoreList {
     @XmlElement(name = "成绩", namespace = "http://jw.nju.edu.cn/schema")
-    private Score scoreInfo;
+    private Score scoreInfo=new Score();
 
     @XmlAttribute(name="课程编号",required = true)
     private String id;

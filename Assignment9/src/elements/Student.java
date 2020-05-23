@@ -3,8 +3,10 @@ package elements;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "学生", namespace = "http://jw.nju.edu.cn/schema")
 public class Student {
 
     @XmlElement(name = "个人信息", namespace = "http://jw.nju.edu.cn/schema")
