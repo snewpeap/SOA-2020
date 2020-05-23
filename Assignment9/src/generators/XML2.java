@@ -2,7 +2,6 @@ package generators;
 
 import elements.*;
 import utils.Converter;
-import utils.Utility;
 
 public class XML2 {
     private static String XML1 = "xml/1.xml";
@@ -31,8 +30,8 @@ public class XML2 {
 
     public static void create() {
         StudentList students = createStudentInfo();
-        Utility.toXML(StudentList.class, students, FILE_PATH);
-        Utility.validate(XSD_PATH, FILE_PATH);
+        Converter.toXML(StudentList.class, students, FILE_PATH);
+        Converter.validate(XSD_PATH, FILE_PATH);
     }
 
     private static StudentList createStudentInfo() {
