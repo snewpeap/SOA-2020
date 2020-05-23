@@ -8,7 +8,7 @@ import java.util.List;
 
 public class XML2 {
     private static String XML1 = "xml/1.xml";
-    
+
     public static Student readXML1() {
         Student student = Converter.toObject(Student.class, XML1);
         return student;
@@ -99,7 +99,7 @@ public class XML2 {
                     score.setPoint(mark);
                     score.setStudentno(idList[i]);
 
-                    scoreList.setScoreInfo(score);
+                    scoreList.getScoreInfo().add(score);
                     courseScoreList.getScoreList().add(scoreList);
                 }
                 course.setScoreList(courseScoreList);

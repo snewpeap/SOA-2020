@@ -1,12 +1,14 @@
 package elements;
 
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ScoreList {
     @XmlElement(name = "成绩", namespace = "http://jw.nju.edu.cn/schema")
-    private Score scoreInfo=new Score();
+    private List<Score> scoreInfo=new ArrayList<>();
 
     @XmlAttribute(name="课程编号",required = true)
     private String id;
@@ -47,11 +49,11 @@ public class ScoreList {
         return id;
     }
 
-    public void setScoreInfo(Score scoreInfo) {
+    public void setScoreInfo(List<Score> scoreInfo) {
         this.scoreInfo = scoreInfo;
     }
 
-    public Score getScoreInfo() {
+    public List<Score> getScoreInfo() {
         return scoreInfo;
     }
 
