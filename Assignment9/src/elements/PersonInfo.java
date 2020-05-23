@@ -16,7 +16,7 @@ public class PersonInfo {
     private String birthday;
 
     @XmlElement(name = "单位部门", namespace = "http://www.nju.edu.cn/schema")
-    private Department department;
+    private Department department=new Department();
 
     public String getName() {
         return name;

@@ -6,11 +6,12 @@ import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
-    @XmlElement(name = "学号", namespace = "http://jw.nju.edu.cn/schema")
-    private String studentNo;
 
     @XmlElement(name = "个人信息", namespace = "http://jw.nju.edu.cn/schema")
     private PersonInfo personInfo = new PersonInfo();
+
+    @XmlElement(name = "学号", namespace = "http://jw.nju.edu.cn/schema")
+    private String studentNo;
 
     @XmlElement(name = "个人课程", namespace = "http://jw.nju.edu.cn/schema")
     private CourseList courseList=new CourseList();
