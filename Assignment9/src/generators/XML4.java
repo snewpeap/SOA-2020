@@ -5,7 +5,7 @@ import elements.ScoreList;
 import utils.Converter;
 
 public class XML4 {
-    private static final String FROM_FILE_PATH = "xml/3.xml";
+    private static final String FROM_FILE_PATH = "xml/xml3.xml";
     private static final String TO_FILE_PATH = "xml/xml4.xml";
     private static final String XSD_PATH = "schema/ScoreList.xsd";
 

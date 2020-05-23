@@ -16,7 +16,7 @@ public class ScoreList {
     @XmlAttribute(name="成绩性质",required = true)
     private String scoreAttribute;
 
-    public static class Score{
+    public static class Score implements Comparable{
         @XmlElement(name = "学号", namespace = "http://jw.nju.edu.cn/schema")
         private String studentno;
         @XmlElement(name = "得分", namespace = "http://jw.nju.edu.cn/schema")
@@ -38,6 +38,16 @@ public class ScoreList {
 
         public void setPoint(int point) {
             this.point = point;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            Score anotherScore = (Score) o;
+            if(this.point > anotherScore.point)
+                return 1;
+            if(this.point < anotherScore.point)
+                return -1;
+            return 0;
         }
     }
 
