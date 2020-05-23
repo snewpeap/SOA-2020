@@ -1,10 +1,12 @@
+package elements;
+
 import javax.xml.bind.annotation.*;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ScoreList {
     @XmlElement(name = "成绩", namespace = "http://jw.nju.edu.cn/schema")
-    private Score score;
+    private Score scoreInfo;
 
     @XmlAttribute(name="课程编号",required = true)
     private String id;
@@ -16,8 +18,9 @@ public class ScoreList {
         @XmlElement(name = "学号", namespace = "http://jw.nju.edu.cn/schema")
         private String studentno;
         @XmlElement(name = "得分", namespace = "http://jw.nju.edu.cn/schema")
-        private int score;
+        private int point;
 
+        @XmlTransient
         public String getStudentno() {
             return studentno;
         }
@@ -26,12 +29,13 @@ public class ScoreList {
             this.studentno = studentno;
         }
 
-        public int getScore() {
-            return score;
+        @XmlTransient
+        public int getPoint() {
+            return point;
         }
 
-        public void setScore(int score) {
-            this.score = score;
+        public void setPoint(int point) {
+            this.point = point;
         }
     }
 
@@ -43,12 +47,12 @@ public class ScoreList {
         return id;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setScoreInfo(Score scoreInfo) {
+        this.scoreInfo = scoreInfo;
     }
 
-    public Score getScore() {
-        return score;
+    public Score getScoreInfo() {
+        return scoreInfo;
     }
 
     public String getScoreAttribute() {

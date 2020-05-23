@@ -6,7 +6,7 @@
     <include schemaLocation="ScoreList.xsd"/>
     <import namespace="http://www.nju.edu.cn/schema" schemaLocation="PersonInfo.xsd"/>
 
-    <element name="学生信息" type="tns:学生信息类型"/>
+    <element name="学生" type="tns:学生信息类型"/>
 
     <complexType name="学生信息类型">
         <sequence>
