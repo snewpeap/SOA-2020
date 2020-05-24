@@ -18,11 +18,10 @@ public class XML3 {
         return studentList;
     }
 
-    private static int insertIntoResult(ArrayList<String> index, String courseId, String attribute,
+    private static void insertIntoResult(ArrayList<String> index, String courseId, String attribute,
                                         ScoreList.Score score, CourseScoreList result){
         if(index.contains(courseId + attribute)){
             result.getScoreList().get(index.indexOf(courseId + attribute)).getScoreInfo().add(score);
-            return index.indexOf(courseId + attribute);
         }
 
         ScoreList scoreList = new ScoreList();
@@ -32,11 +31,9 @@ public class XML3 {
         result.getScoreList().add(scoreList);
 
         index.add(courseId + attribute);
-        return index.size() - 1;
     }
 
     private static CourseScoreList getScoreList(StudentList studentList){
-        ArrayList<ArrayList<ScoreList.Score>> scores = new ArrayList<>();
         ArrayList<String> index = new ArrayList<>();
 
         CourseScoreList result = new CourseScoreList();
