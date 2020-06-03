@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<description
+        xmlns="http://www.w3.org/ns/wsdl"
+        targetNamespace= "http://jw.nju.edu.cn/wsdl"
+        xmlns:tns="http://jw.nju.edu.cn/wsdl"
+        xmlns:jw="http://jw.nju.edu.cn/schema"
+        xmlns:wsoap= "http://www.w3.org/ns/wsdl/soap"
+        xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+
+    <types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema" >
+            <xs:include schemaLocation="../schema/Student.xsd"/>
+            <xs:element name="invalidDataError" type="xs:string" />
+			<xs:element name="ifSuccess" type="xs:string" />
+        </xs:schema>
+    </types>
+
+    <interface name="getStudentInterface">
+        <fault name="invalidDataFaullt" element="jw:invalidDataError"/>
+        <operation name="opGetStudent" pattern="http://www.w3.org/ns/wsdl/in-out">
+            <input messageLabel="In" element="jw:学号"></input>
+            <output messageLabel="Out" element="jw:个人信息"></output>
+            <outfault ref="tns:invalidDataFaullt" messageLabel="Out"></outfault>
+        </operation>
+    </interface>
+
+    <interface name="updateStudentInterface">
+        <fault name="invalidDataFaullt" element="jw:invalidDataError"/>
+        <operation name="opUpdateStudent" pattern="http://www.w3.org/ns/wsdl/in-out">
+            <input messageLabel="In1" element="jw:学号"></input>
+            <input messageLabel="In2" element="jw:个人信息"></input>
+            <output messageLabel="Out" element="jw:个人信息"></output>
+            <outfault ref="tns:invalidDataFaullt" messageLabel="Out"></outfault>
+        </operation>
+    </interface>
+
+    <interface name="deleteStudentInterface">
+        <fault name="invalidDataFaullt" element="jw:invalidDataError"/>
+        <operation name="opDeleteStudent" pattern="http://www.w3.org/ns/wsdl/in-out">
+            <input messageLabel="In" element="jw:学号"></input>
+            <output messageLabel="Out" element="jw:ifSuccess"></output>
+            <outfault ref="tns:invalidDataFaullt" messageLabel="Out"></outfault>
+        </operation>
+    </interface>
+
+    <interface name="addStudentInterface">
+        <fault name="invalidDataFaullt" element="jw:invalidDataError"/>
+        <operation name="opAddStudent" pattern="http://www.w3.org/ns/wsdl/in-out">
+            <input messageLabel="In1" element="jw:学号"></input>
+            <input messageLabel="In2" element="jw:个人信息"></input>
+            <output messageLabel="Out" element="jw:个人信息"></output>
+            <outfault ref="tns:invalidDataFaullt" messageLabel="Out"></outfault>
+        </operation>
+    </interface>
+
+    <binding name="getStudentBinding"
+             interface="tns:getStudentInterface"
+             type="http://www.w3.org/ns/wsdl/soap"
+             wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP">
+        <operation red="tns:opGetStudent" wsoap:mep="https://www.w3.org/2003/05/soap/mep/request-response"/>
+        <fault ref="tns:invalidDataFaullt" wsoap:code="soap:Sender"/>
+    </binding>
+
+    <binding name="updateStudentBinding"
+             interface="tns:updateStudentInterface"
+             type="http://www.w3.org/ns/wsdl/soap"
+             wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP">
+        <operation red="tns:opUpdateStudent" wsoap:mep="https://www.w3.org/2003/05/soap/mep/request-response"/>
+        <fault ref="tns:invalidDataFaullt" wsoap:code="soap:Sender"/>
+    </binding>
+
+    <binding name="deleteStudentBinding"
+             interface="tns:deleteStudentInterface"
+             type="http://www.w3.org/ns/wsdl/soap"
+             wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP">
+        <operation red="tns:opDeleteStudent" wsoap:mep="https://www.w3.org/2003/05/soap/mep/request-response"/>
+        <fault ref="tns:invalidDataFaullt" wsoap:code="soap:Sender"/>
+    </binding>
+
+    <binding name="addStudentBinding"
+             interface="tns:addStudentInterface"
+             type="http://www.w3.org/ns/wsdl/soap"
+             wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP">
+        <operation red="tns:opAddStudent" wsoap:mep="https://www.w3.org/2003/05/soap/mep/request-response"/>
+        <fault ref="tns:invalidDataFaullt" wsoap:code="soap:Sender"/>
+    </binding>
+
+    <service name="getStudentService" interface="tns:getStudentInterface">
+        <endpoint name="getStudentEndpoint" binding="tns:getStudentBinding" address="http://mock"/>
+    </service>
+
+    <service name="updateStudentService" interface="tns:updateStudentInterface">
+        <endpoint name="updateStudentEndpoint" binding="tns:updateStudentBinding" address="http://mock"/>
+    </service>
+
+    <service name="deleteStudentService" interface="tns:deleteStudentInterface">
+        <endpoint name="deleteStudentEndpoint" binding="tns:deleteStudentBinding" address="http://mock"/>
+    </service>
+
+    <service name="addStudentService" interface="tns:addStudentInterface">
+        <endpoint name="addStudentEndpoint" binding="tns:addStudentBinding" address="http://mock"/>
+    </service>
+</description>
