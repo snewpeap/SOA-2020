@@ -15,9 +15,9 @@
     <interface name="verifyIDInterface">
         <fault name="invalidDataFaullt" element="jw:invalidDataError"/>
         <operation name="verifyID" pattern="http://www.w3.org/ns/wsdl/in-out">
-            <input messageLabel="In" element="jw:学号"></input>
-            <output messageLabel="Out" element="jw:权限"></output>
-            <outfault ref="tns:invalidDataFaullt" messageLabel="Out"></outfault>
+            <input messageLabel="In" element="jw:学号"/>
+            <output messageLabel="Out" element="jw:权限"/>
+            <outfault ref="tns:invalidDataFaullt" messageLabel="Out"/>
         </operation>
     </interface>
 
