@@ -25,7 +25,7 @@
              interface="tns:gverifyIDInterface"
              type="http://www.w3.org/ns/wsdl/soap"
              wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP">
-        <operation red="tns:opverifyIDB" wsoap:mep="https://www.w3.org/2003/05/soap/mep/request-response"/>
+        <operation ref="tns:opverifyIDB" wsoap:mep="https://www.w3.org/2003/05/soap/mep/request-response"/>
         <fault ref="tns:invalidDataFaullt" wsoap:code="soap:Sender"/>
     </binding>
 

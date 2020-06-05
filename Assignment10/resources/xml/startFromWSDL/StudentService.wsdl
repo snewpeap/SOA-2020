@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+        targetNamespace="http://jw.nju.edu.cn/wsdl"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:tns="http://jw.nju.edu.cn/wsdl"
+        xmlns:jw="http://jw.nju.edu.cn/schema"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema"
+                   xmlns:nju="http://www.nju.edu.cn/schema">
+            <xs:include schemaLocation="../schema/StudentList.xsd"/>
+            <xs:import namespace="http://www.nju.edu.cn/schema" schemaLocation="../schema/PersonInfo.xsd"/>
+            <xs:element name="studentNumber" type="jw:学号类型"/>
+            <xs:element name="invalidDataError" type="xs:string"/>
+            <xs:element name="ifSuccess" type="xs:string"/>
+            <xs:element name="studentInfo" type="jw:学生信息类型"/>
+            <xs:element name="simplifiedStudentInfo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="personalInfo" type="nju:个人基本信息类型"/>
+                        <xs:element name="studentId" type="jw:学号类型"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+
+    <wsdl:message name="studentNumber">
+        <wsdl:part name="parameters" element="jw:studentNumber"/>
+    </wsdl:message>
+
+    <wsdl:message name="ifSuccess">
+        <wsdl:part name="parameters" element="jw:ifSuccess"/>
+    </wsdl:message>
+
+    <wsdl:message name="studentRequest">
+        <wsdl:part name="parameters" element="jw:simplifiedStudentInfo"/>
+    </wsdl:message>
+
+    <wsdl:message name="studentResponse">
+        <wsdl:part name="parameters" element="jw:studentInfo"/>
+    </wsdl:message>
+
+    <wsdl:message name="invalidDataFault">
+        <wsdl:part name="parameters" element="jw:invalidDataError"/>
+    </wsdl:message>
+
+    <wsdl:portType name="GetStudentInterface">
+        <wsdl:operation name="opGetStudent">
+            <wsdl:input message="tns:studentNumber"/>
+            <wsdl:output message="tns:studentResponse"/>
+            <wsdl:fault name="invalidInputDataFault" message="tns:invalidDataFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:portType name="UpdateStudentInterface">
+        <wsdl:operation name="opUpdateStudent">
+            <wsdl:input message="tns:studentRequest"/>
+            <wsdl:output message="tns:studentResponse"/>
+            <wsdl:fault name="invalidInputDataFault" message="tns:invalidDataFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:portType name="DeleteStudentInterface">
+        <wsdl:operation name="opDeleteStudent">
+            <wsdl:input message="tns:studentNumber"/>
+            <wsdl:output message="tns:ifSuccess"/>
+            <wsdl:fault name="invalidInputDataFault" message="tns:invalidDataFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="GetStudentBinding" type="tns:GetStudentInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opGetStudent">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="invalidInputDataFault">
+                <soap:fault name="invalidInputDataFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:binding name="UpdateStudentBinding" type="tns:UpdateStudentInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opUpdateStudent">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="invalidInputDataFault">
+                <soap:fault name="invalidInputDataFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:binding name="DeleteStudentBinding" type="tns:DeleteStudentInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opDeleteStudent">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="invalidInputDataFault">
+                <soap:fault name="invalidInputDataFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="StudentService">
+        <wsdl:port name="GetStudentServicePort" binding="tns:GetStudentBinding">
+            <soap:address location="http://localhost:8080/student/get"/>
+        </wsdl:port>
+        <wsdl:port name="UpdateStudentServicePort" binding="tns:UpdateStudentBinding">
+            <soap:address location="http://localhost:8080/student/update"/>
+        </wsdl:port>
+        <wsdl:port name="DeleteStudentServicePort" binding="tns:DeleteStudentBinding">
+            <soap:address location="http://localhost:8080/student/delete"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
