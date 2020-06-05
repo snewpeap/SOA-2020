@@ -3,6 +3,7 @@ package startFromWSDL.StudentService;
 import startFromWSDL.ServiceBasis;
 import startFromWSDL.types.学生信息类型;
 import startFromWSDL.types.学生列表类型;
+import startFromWSDL.types.权限类型;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
                       serviceName = "StudentService",
                       portName = "UpdateStudentServicePort",
                       targetNamespace = "http://jw.nju.edu.cn/wsdl",
-                      wsdlLocation = "file:/D:/programe/Java/SOA/Assignment10/resources/xml/startFromWSDL/StudentService.wsdl",
+                      wsdlLocation = "xml/startFromWSDL/StudentService.wsdl",
                       endpointInterface = "startFromWSDL.StudentService.UpdateStudentInterface")
 
 public class UpdateStudentServicePortImpl extends ServiceBasis implements UpdateStudentInterface {
@@ -58,6 +59,7 @@ public class UpdateStudentServicePortImpl extends ServiceBasis implements Update
         startFromWSDL.types.学生信息类型.个人课程 personalCourses = new 学生信息类型.个人课程();
         personalCourses.get课程();
         student.set个人课程(personalCourses);
+        student.set权限(权限类型.getDefaultStudentAuthority());
         return student;
     }
 }

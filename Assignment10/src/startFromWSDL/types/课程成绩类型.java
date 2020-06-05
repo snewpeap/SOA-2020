@@ -3,10 +3,7 @@ package startFromWSDL.types;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -31,11 +28,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "课程成绩类型", propOrder = {
+@XmlType(name = "课程成绩类型", namespace = "http://jw.nju.edu.cn/schema", propOrder = {
     "成绩"
 })
 public class 课程成绩类型 {
 
+    @XmlElement(namespace = "http://jw.nju.edu.cn/schema")
     protected List<成绩类型> 成绩;
     @XmlAttribute
     protected String 课程编号;

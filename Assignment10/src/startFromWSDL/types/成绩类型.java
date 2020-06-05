@@ -28,14 +28,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "成绩类型", propOrder = {
+@XmlType(name = "成绩类型", namespace = "http://jw.nju.edu.cn/schema", propOrder = {
     "学号",
     "得分"
 })
 public class 成绩类型 {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     protected String 学号;
+    @XmlElement(namespace = "http://jw.nju.edu.cn/schema")
     protected int 得分;
 
     /**

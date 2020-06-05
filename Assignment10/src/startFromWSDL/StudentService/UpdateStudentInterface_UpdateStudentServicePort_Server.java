@@ -15,7 +15,7 @@ import javax.xml.ws.Endpoint;
 public class UpdateStudentInterface_UpdateStudentServicePort_Server{
 
     public UpdateStudentInterface_UpdateStudentServicePort_Server(学生列表类型 studentList) {
-        System.out.println("Starting Server");
+        System.out.println("Starting " + getClass().getName());
         Object implementor = new UpdateStudentServicePortImpl(studentList);
         String address = "http://localhost:8080/student/update";
         Endpoint.publish(address, implementor);

@@ -40,15 +40,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class 个人基本信息类型 {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.nju.edu.cn/schema")
     protected String 姓名;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.nju.edu.cn/schema")
     @XmlSchemaType(name = "string")
     protected 性别类型 性别;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.nju.edu.cn/schema")
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar 出生日期;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.nju.edu.cn/schema")
     protected 单位部门信息类型 单位部门;
 
     /**

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -28,11 +29,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "课程成绩列表类型", propOrder = {
+@XmlType(name = "课程成绩列表类型", namespace = "http://jw.nju.edu.cn/schema", propOrder = {
     "课程成绩"
 })
 public class 课程成绩列表类型 {
 
+    @XmlElement(namespace = "http://jw.nju.edu.cn/schema")
     protected List<课程成绩类型> 课程成绩;
 
     /**

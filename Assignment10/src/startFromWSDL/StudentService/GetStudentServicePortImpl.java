@@ -16,7 +16,7 @@ import java.util.logging.Logger;
         serviceName = "StudentService",
         portName = "GetStudentServicePort",
         targetNamespace = "http://jw.nju.edu.cn/wsdl",
-        wsdlLocation = "file:/D:/programe/Java/SOA/Assignment10/resources/xml/startFromWSDL/StudentService.wsdl",
+        wsdlLocation = "xml/startFromWSDL/StudentService.wsdl",
         endpointInterface = "startFromWSDL.StudentService.GetStudentInterface")
 
 public class GetStudentServicePortImpl extends ServiceBasis implements GetStudentInterface {

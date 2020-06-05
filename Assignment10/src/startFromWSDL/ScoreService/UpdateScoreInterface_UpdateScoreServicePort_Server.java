@@ -15,9 +15,9 @@ import javax.xml.ws.Endpoint;
 public class UpdateScoreInterface_UpdateScoreServicePort_Server{
 
     public UpdateScoreInterface_UpdateScoreServicePort_Server(学生列表类型 studentList) {
-        System.out.println("Starting Server");
+        System.out.println("Starting " + getClass().getName());
         Object implementor = new UpdateScoreServicePortImpl(studentList);
-        String address = "not yet determined";
+        String address = "http://localhost:8080/score/update";
         Endpoint.publish(address, implementor);
     }
 

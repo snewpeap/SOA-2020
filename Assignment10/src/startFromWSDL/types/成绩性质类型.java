@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "成绩性质类型")
+@XmlType(name = "成绩性质类型", namespace = "http://jw.nju.edu.cn/schema")
 @XmlEnum
 public enum 成绩性质类型 {
 

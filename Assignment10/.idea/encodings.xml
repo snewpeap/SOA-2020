@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/src/startFromWSDL/ScoreService/GetScoreServicePortImpl.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/startFromWSDL/ScoreService/UpdateScoreInterface.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/startFromWSDL/ScoreService/UpdateScoreServicePortImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/startFromWSDL/StudentService/GetStudentInterface.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/startFromWSDL/StudentService/UpdateStudentInterface.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/startFromWSDL/types/课程类型.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/startFromWSDL/课程成绩列表类型.java" charset="GBK" />
     <file url="PROJECT" charset="GBK" />

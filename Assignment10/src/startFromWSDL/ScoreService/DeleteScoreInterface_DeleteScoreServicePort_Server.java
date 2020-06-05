@@ -16,7 +16,7 @@ public class DeleteScoreInterface_DeleteScoreServicePort_Server {
     public DeleteScoreInterface_DeleteScoreServicePort_Server(学生列表类型 studentList) {
         System.out.println("Starting " + getClass().getName());
         Object implementor = new DeleteScoreServicePortImpl(studentList);
-        String address = "not yet determined";
+        String address = "http://localhost:8080/score/delete";
         Endpoint.publish(address, implementor);
     }
 

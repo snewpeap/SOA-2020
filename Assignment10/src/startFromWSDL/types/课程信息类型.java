@@ -46,7 +46,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "课程信息类型", propOrder = {
+@XmlType(name = "课程信息类型", namespace = "http://jw.nju.edu.cn/schema", propOrder = {
     "课程编号",
     "课程名称",
     "课程教师",
@@ -57,20 +57,20 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class 课程信息类型 {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     protected String 课程编号;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     protected String 课程名称;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     protected 课程信息类型.课程教师 课程教师;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     protected 学期类型 学期;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     @XmlSchemaType(name = "string")
     protected 校区类型 上课校区;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     protected String 上课地点;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     @XmlSchemaType(name = "string")
     protected startFromWSDL.types.课程类型 课程类型;
 
@@ -268,7 +268,7 @@ public class 课程信息类型 {
     })
     public static class 课程教师 {
 
-        @XmlElement(required = true)
+        @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
         protected List<String> 教师;
 
         /**

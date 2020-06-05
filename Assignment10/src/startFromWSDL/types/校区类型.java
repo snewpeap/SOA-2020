@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "校区类型")
+@XmlType(name = "校区类型", namespace = "http://jw.nju.edu.cn/schema")
 @XmlEnum
 public enum 校区类型 {
 

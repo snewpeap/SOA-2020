@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class 单位部门信息类型 {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.nju.edu.cn/schema")
     protected 单位类型 单位;
     @XmlElement(required = true)
     protected String 地址;

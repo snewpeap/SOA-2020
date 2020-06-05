@@ -1,6 +1,6 @@
 package startFromWSDL.StudentService;
 
-import startFromWSDL.types.瀛︾敓淇℃伅绫诲瀷;
+import startFromWSDL.types.学生信息类型;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -20,7 +20,7 @@ public interface GetStudentInterface {
 
     @WebMethod
     @WebResult(name = "studentInfo", targetNamespace = "http://jw.nju.edu.cn/schema", partName = "parameters")
-    public 瀛︾敓淇℃伅绫诲瀷 opGetStudent(
+    public 学生信息类型 opGetStudent(
 
         @WebParam(partName = "parameters", name = "studentNumber", targetNamespace = "http://jw.nju.edu.cn/schema")
         java.lang.String parameters

@@ -23,7 +23,7 @@ import java.util.logging.Logger;
                       serviceName = "ScoreService",
                       portName = "UpdateScoreServicePort",
                       targetNamespace = "http://jw.nju.edu.cn/wsdl",
-                      wsdlLocation = "file:/D:/programe/Java/SOA/Assignment10/web/xml/startFromWSDL/ScoreService.wsdl",
+                      wsdlLocation = "xml/startFromWSDL/ScoreService.wsdl",
                       endpointInterface = "startFromWSDL.ScoreService.UpdateScoreInterface")
 
 public class UpdateScoreServicePortImpl extends ServiceBasis implements UpdateScoreInterface {

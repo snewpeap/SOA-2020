@@ -31,16 +31,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "学期类型", propOrder = {
+@XmlType(name = "学期类型", namespace = "http://jw.nju.edu.cn/schema", propOrder = {
     "学年",
     "学期数"
 })
 public class 学期类型 {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     @XmlSchemaType(name = "gYear")
     protected XMLGregorianCalendar 学年;
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://jw.nju.edu.cn/schema")
     @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger 学期数;
 

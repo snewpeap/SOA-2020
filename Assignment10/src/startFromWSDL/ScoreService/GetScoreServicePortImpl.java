@@ -19,7 +19,7 @@ import java.util.logging.Logger;
         serviceName = "ScoreService",
         portName = "GetScoreServicePort",
         targetNamespace = "http://jw.nju.edu.cn/wsdl",
-        wsdlLocation = "file:/D:/programe/Java/SOA/Assignment10/web/xml/startFromWSDL/ScoreService.wsdl",
+        wsdlLocation = "xml/startFromWSDL/ScoreService.wsdl",
         endpointInterface = "startFromWSDL.ScoreService.GetScoreInterface")
 
 public class GetScoreServicePortImpl extends ServiceBasis implements GetScoreInterface {

@@ -102,13 +102,13 @@
 
     <wsdl:service name="ScoreService">
         <wsdl:port name="GetScoreServicePort" binding="tns:GetScoreBinding">
-            <soap:address location="not yet determined"/>
+            <soap:address location="http://localhost:8080/score/get"/>
         </wsdl:port>
         <wsdl:port name="UpdateScoreServicePort" binding="tns:UpdateScoreBinding">
-            <soap:address location="not yet determined"/>
+            <soap:address location="http://localhost:8080/score/update"/>
         </wsdl:port>
         <wsdl:port name="DeleteScoreServicePort" binding="tns:DeleteScoreBinding">
-            <soap:address location="not yet determined"/>
+            <soap:address location="http://localhost:8080/score/delete"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

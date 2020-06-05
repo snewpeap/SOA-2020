@@ -15,7 +15,7 @@ import javax.xml.ws.Endpoint;
 public class DeleteStudentInterface_DeleteStudentServicePort_Server{
 
     public DeleteStudentInterface_DeleteStudentServicePort_Server(学生列表类型 studentList) {
-        System.out.println("Starting Server");
+        System.out.println("Starting " + getClass().getName());
         Object implementor = new DeleteStudentServicePortImpl(studentList);
         String address = "http://localhost:8080/student/delete";
         Endpoint.publish(address, implementor);

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+
+    <simpleType name="学号类型">
+        <restriction base="string">
+            <length value="9"/>
+        </restriction>
+    </simpleType>
+</schema>

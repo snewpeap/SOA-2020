@@ -15,9 +15,9 @@ import javax.xml.ws.Endpoint;
 public class GetScoreInterface_GetScoreServicePort_Server{
 
     public GetScoreInterface_GetScoreServicePort_Server(学生列表类型 studentList) {
-        System.out.println("Starting Server");
+        System.out.println("Starting " + getClass().getName());
         Object implementor = new GetScoreServicePortImpl(studentList);
-        String address = "not yet determined";
+        String address = "http://localhost:8080/score/get";
         Endpoint.publish(address, implementor);
     }
 

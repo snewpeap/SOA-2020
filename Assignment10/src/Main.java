@@ -28,12 +28,13 @@ public class Main {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setIgnoringElementContentWhitespace(true);
         factory.setIgnoringComments(true);
+        factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.parse(this.getClass().getResourceAsStream("/xml/document.xml"));
     }
 
     private void initService() throws Exception {
-        学生列表类型 studentList = new 学生列表类型();
+        学生列表类型 studentList;
         JAXBContext jaxbContext = JAXBContext.newInstance(学生列表类型.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         studentList = (学生列表类型) unmarshaller.unmarshal(document);
