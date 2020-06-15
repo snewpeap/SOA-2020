@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+        targetNamespace="http://jw.nju.edu.cn/wsdl"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:tns="http://jw.nju.edu.cn/wsdl"
+        xmlns:jw="http://jw.nju.edu.cn/schema"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema">
+            <xs:include schemaLocation="./schema/StudentList.xsd"/>
+            <xs:element name="studentNumber" type="jw:学号类型"/>
+            <xs:element name="invalidDataError" type="xs:string"/>
+            <xs:element name="ifSuccess" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+
+    <wsdl:message name="studentNumber">
+        <wsdl:part name="parameters" element="jw:studentNumber"/>
+    </wsdl:message>
+
+    <wsdl:message name="ifSuccess">
+        <wsdl:part name="parameters" element="jw:ifSuccess"/>
+    </wsdl:message>
+
+    <wsdl:message name="courseScoreList">
+        <wsdl:part name="parameters" element="jw:课程成绩列表"/>
+    </wsdl:message>
+
+    <wsdl:message name="invalidDataFault">
+        <wsdl:part name="parameters" element="jw:invalidDataError"/>
+    </wsdl:message>
+
+    <wsdl:portType name="GetScoreInterface">
+        <wsdl:operation name="opGetScore">
+            <wsdl:input message="tns:studentNumber"/>
+            <wsdl:output message="tns:courseScoreList"/>
+            <wsdl:fault name="invalidInputDataFault" message="tns:invalidDataFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:portType name="UpdateScoreInterface">
+        <wsdl:operation name="opUpdateScore">
+            <wsdl:input message="tns:courseScoreList"/>
+            <wsdl:output message="tns:courseScoreList"/>
+            <wsdl:fault name="invalidInputDataFault" message="tns:invalidDataFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:portType name="DeleteScoreInterface">
+        <wsdl:operation name="opDeleteScore">
+            <wsdl:input message="tns:courseScoreList"/>
+            <wsdl:output message="tns:ifSuccess"/>
+            <wsdl:fault name="invalidInputDataFault" message="tns:invalidDataFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="GetScoreBinding" type="tns:GetScoreInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opGetScore">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="invalidInputDataFault">
+                <soap:fault name="invalidInputDataFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:binding name="UpdateScoreBinding" type="tns:UpdateScoreInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opUpdateScore">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="invalidInputDataFault">
+                <soap:fault name="invalidInputDataFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:binding name="DeleteScoreBinding" type="tns:DeleteScoreInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opDeleteScore">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="invalidInputDataFault">
+                <soap:fault name="invalidInputDataFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="ScoreService">
+        <wsdl:port name="GetScoreServicePort" binding="tns:GetScoreBinding">
+            <soap:address location="http://localhost:8080/score/get"/>
+        </wsdl:port>
+        <wsdl:port name="UpdateScoreServicePort" binding="tns:UpdateScoreBinding">
+            <soap:address location="http://localhost:8080/score/update"/>
+        </wsdl:port>
+        <wsdl:port name="DeleteScoreServicePort" binding="tns:DeleteScoreBinding">
+            <soap:address location="http://localhost:8080/score/delete"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

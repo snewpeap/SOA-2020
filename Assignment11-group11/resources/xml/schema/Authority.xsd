@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.nju.edu.cn/security/schema"
+        xmlns:tns="http://www.nju.edu.cn/security/schema"
+        xmlns:jw="http://jw.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+
+    <import namespace="http://jw.nju.edu.cn/schema" schemaLocation="./Student.xsd"></import>
+    <import namespace="http://www.nju.edu.cn/schema" schemaLocation="./Department.xsd"></import>
+
+    <element name="认证信息" type="tns:学生认证信息类型"></element>
+    <element name="验证结果" type="tns:验证结果类型"></element>
+
+    <element name="StudentAuthorityParam" type="tns:StudentAuthorityParamType"></element>
+    <complexType name="StudentAuthorityParamType">
+        <sequence>
+            <element name="认证信息" type="tns:学生认证信息类型"></element>
+        </sequence>
+    </complexType>
+
+
+    <simpleType name="密码类型">
+        <restriction base="string">
+            <minLength value="6"></minLength>
+            <maxLength value="16"></maxLength>
+        </restriction>
+    </simpleType>
+
+    <complexType name="学生认证信息类型">
+        <sequence>
+            <element name="学号" type="jw:学号类型"></element>
+            <element name="密码" type="tns:密码类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="验证结果类型">
+        <sequence>
+            <element name="学号" type="jw:学号类型"></element>
+            <element name="权限列表" type="tns:权限列表类型"></element>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="权限列表类型">
+        <sequence minOccurs="0" maxOccurs="unbounded">
+            <element name="权限编号" type="tns:权限编号类型"></element>
+        </sequence>
+
+    </complexType>
+
+    <simpleType name="权限分类类型">
+        <restriction base="string">
+            <enumeration value="门禁编号"></enumeration>
+            <enumeration value="书籍编号"></enumeration>
+            <enumeration value="院系编号"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <complexType name="权限编号类型">
+        <sequence>
+            <element name="编号" type="string"></element>
+        </sequence>
+        <attribute name="权限类别" type="tns:权限分类类型"></attribute>
+    </complexType>
+
+
+</schema>

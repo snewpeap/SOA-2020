@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.nju.edu.cn/schema"
+        xmlns:tns="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+
+    <include schemaLocation="Department.xsd"/>
+
+
+    <element name="EmailAuthenticationInfo" type="tns:EmailAuthenticationInfoType"></element>
+    <element name="EmailAuthenticationResult" type="tns:EmailAuthenticationResultType"></element>
+
+    <complexType name="EmailAuthenticationInfoType">
+        <sequence>
+            <element name="邮箱" type="tns:联系邮箱类型"></element>
+            <element name="密码" type="string"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="EmailAuthenticationResultType">
+        <sequence>
+            <element name="邮箱" type="tns:联系邮箱类型"></element>
+            <element name="身份" type="tns:EmailIdentity"></element>
+        </sequence>
+    </complexType>
+
+
+    <simpleType name="EmailIdentity">
+        <restriction base="string">
+            <enumeration value="老师"></enumeration>
+            <enumeration value="本科生"></enumeration>
+            <enumeration value="研究生"></enumeration>
+        </restriction>
+    </simpleType>
+
+</schema>

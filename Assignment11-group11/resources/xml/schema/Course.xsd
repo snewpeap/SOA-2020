@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jw.nju.edu.cn/schema"
+        xmlns:tns="http://jw.nju.edu.cn/schema"
+        xmlns:nju="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+    <!--    <include schemaLocation="./Department.xsd"></include>-->
+    <include schemaLocation="./Student.xsd"></include>
+    <import namespace="http://www.nju.edu.cn/schema" schemaLocation="Department.xsd"></import>
+
+    <element name="课程编号" type="tns:课程编号类型"></element>
+    <element name="课程名称" type="string" default="无"></element>
+    <element name="课程性质" type="tns:课程性质类型"></element>
+    <element name="学分" type="tns:学分类型"></element>
+    <element name="开设院系列表" type="tns:开设院系列表类型"></element>
+    <element name="任课教师列表" type="tns:任课教师列表类型"></element>
+    <element name="选课人数上限" type="tns:选课人数类型"></element>
+    <element name="选课人数" type="tns:选课人数类型"></element>
+    <element name="选课学生列表" type="tns:选课学生列表"></element>
+    <element name="开课学期" type="tns:开课学期类型"></element>
+    <element name="上课时间列表" type="tns:上课时间列表"></element>
+
+    <simpleType name="学分类型">
+        <restriction base="int">
+            <minInclusive value="1"></minInclusive>
+            <maxInclusive value="10"></maxInclusive>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="开课学期类型">
+        <restriction base="string">
+            <pattern value="([0-9]{4})~([0-9]{4})第([1-9][0-9]*)学期"></pattern>
+        </restriction>
+    </simpleType>
+
+    <complexType name="上课时间列表">
+        <sequence minOccurs="0" maxOccurs="unbounded">
+            <element name="上课时间" type="dateTime"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="选课学生列表">
+        <sequence minOccurs="0" maxOccurs="unbounded">
+            <element name="选课学生信息" type="tns:学生身份"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="学生身份">
+        <sequence>
+            <element name="学号" type="tns:学号类型"></element>
+            <element name="姓名" type="string"></element>
+        </sequence>
+    </complexType>
+
+    <simpleType name="选课人数类型">
+        <restriction base="integer">
+            <minInclusive value="0"></minInclusive>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="教师编号类型">
+        <restriction base="string">
+            <length value="9"></length>
+        </restriction>
+    </simpleType>
+
+    <complexType name="任课教师信息类型">
+        <sequence>
+            <element name="教师编号" type="tns:教师编号类型"></element>
+            <element name="教师姓名" type="string" default="无"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="任课教师列表类型">
+        <sequence maxOccurs="unbounded">
+            <element name="任课教师信息" type="tns:任课教师信息类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="开设院系类型">
+        <sequence>
+            <element name="院系编号" type="nju:部门编号类型" default="000000"></element>
+            <element name="院系名称" type="string" default="无"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="开设院系列表类型">
+        <sequence maxOccurs="unbounded">
+            <element name="开设院系" type="tns:开设院系类型"></element>
+        </sequence>
+    </complexType>
+
+    <simpleType name="课程性质类型">
+        <restriction base="string">
+            <enumeration value="通识"></enumeration>
+            <enumeration value="平台"></enumeration>
+            <enumeration value="核心"></enumeration>
+            <enumeration value="选修"></enumeration>
+            <enumeration value="导学"></enumeration>
+            <enumeration value="研讨"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="课程编号类型">
+        <restriction base="string">
+            <length value="6"></length>
+        </restriction>
+    </simpleType>
+</schema>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.nju.edu.cn/schema"
+        xmlns:tns="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+    <include schemaLocation="./Department.xsd"></include>
+
+
+    <element name="个人信息" type="tns:个人信息类型"></element>
+
+    <complexType name="个人信息类型">
+        <sequence>
+            <element name="姓名" type="string"></element>
+            <element name="性别" type="tns:性别类型"></element>
+            <element name="民族" type="string"></element>
+            <element name="出生日期" type="date"></element>
+            <element name="国籍" type="string"></element>
+            <element name="身份标识" type="tns:身份标识类型"></element>
+            <element name="联系电话" type="string"></element>
+            <element name="联系邮箱" type="tns:联系邮箱类型"></element>
+            <element name="所属部门列表" type="tns:所属部门列表类型"></element>
+            <element name="家庭住址" type="string" default=""></element>
+            <element name="政治面貌" type="tns:政治面貌类型"></element>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="身份标识类型">
+        <choice>
+            <element name="身份证号" type="tns:身份证号类型"></element>
+            <element name="护照编号" type="tns:护照编号类型"></element>
+        </choice>
+    </complexType>
+
+    <simpleType name="护照编号类型">
+        <restriction base="string">
+            <pattern value="[a-zA-Z0-9]{9}"></pattern>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="身份证号类型">
+        <restriction base="string">
+            <length value="18"></length>
+        </restriction>
+    </simpleType>
+
+
+    <simpleType name="政治面貌类型">
+        <restriction base="string">
+            <enumeration value="中共党员"></enumeration>
+            <enumeration value="中共预备党员"></enumeration>
+            <enumeration value="共青团员"></enumeration>
+            <enumeration value="民革党员"></enumeration>
+            <enumeration value="民盟盟员"></enumeration>
+            <enumeration value="民建会员"></enumeration>
+            <enumeration value="民进会员"></enumeration>
+            <enumeration value="农工党党员"></enumeration>
+            <enumeration value="致公党党员"></enumeration>
+            <enumeration value="九三学社社员"></enumeration>
+            <enumeration value="台盟盟员"></enumeration>
+            <enumeration value="无党派人士"></enumeration>
+            <enumeration value="群众"></enumeration>
+        </restriction>
+    </simpleType>
+
+
+    <simpleType name="性别类型">
+        <restriction base="string">
+            <enumeration value="男"></enumeration>
+            <enumeration value="女"></enumeration>
+            <enumeration value="其他"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <complexType name="所属部门类型">
+        <sequence>
+            <element name="部门编号" type="tns:部门编号类型" default="000000"></element>
+            <element name="部门名称" type="string" default="无"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="所属部门列表类型">
+        <sequence minOccurs="0" maxOccurs="unbounded">
+            <element name="所属部门" type="tns:所属部门类型"></element>
+        </sequence>
+    </complexType>
+
+
+</schema>

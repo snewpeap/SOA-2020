@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jw.nju.edu.cn/schema"
+        xmlns:tns="http://jw.nju.edu.cn/schema"
+        xmlns:nju="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+
+    <include schemaLocation="./ScoreList.xsd"></include>
+    <include schemaLocation="./Course.xsd"></include>
+    <import namespace="http://www.nju.edu.cn/schema" schemaLocation="./PersonInfo.xsd"></import>
+
+    <element name="getStudentInfoParam" type="tns:getStudentInfoParamType">
+
+    </element>
+    <element name="addStudentInfoParam" type="tns:addStudentInfoParamType">
+
+    </element>
+    <element name="updateStudentInfoParam" type="tns:updateStudentInfoParamType">
+
+    </element>
+    <element name="deleteStudentInfoParam" type="tns:deleteStudentInfoParamType">
+
+    </element>
+
+    <element name="学生" type="tns:学生信息类型">
+
+    </element>
+
+    <element name="学号" type="tns:学号类型">
+
+    </element>
+    <complexType name="getStudentInfoParamType">
+        <sequence>
+            <element name="学号" type="tns:学号类型"></element>
+        </sequence>
+    </complexType>
+    <complexType name="addStudentInfoParamType">
+        <sequence>
+            <element name="学生" type="tns:学生信息类型"></element>
+        </sequence>
+    </complexType>
+    <complexType name="updateStudentInfoParamType">
+        <sequence>
+            <element name="学生" type="tns:学生信息类型"></element>
+        </sequence>
+    </complexType>
+    <complexType name="deleteStudentInfoParamType">
+        <sequence>
+            <element name="学号" type="tns:学号类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="学生信息类型">
+        <sequence>
+            <element name="学号" type="tns:学号类型"></element>
+            <element name="学生姓名" type="string"></element>
+            <element name="学生性别" type="nju:性别类型"></element>
+            <element name="出生日期" type="date"></element>
+            <element name="联系电话" type="string" default="无"></element>
+            <element name="联系邮箱" type="nju:联系邮箱类型"></element>
+            <element name="所属院系" type="nju:所属部门类型"></element>
+            <element name="家庭住址" type="string" default="无"></element>
+            <element name="课程成绩列表" type="tns:课程成绩列表类型"></element>
+            <element name="入学年级" type="tns:入学年级类型"></element>
+            <element name="学籍性质" type="tns:学籍性质类型"></element>
+            <element name="政治面貌" type="nju:政治面貌类型"></element>
+        </sequence>
+    </complexType>
+
+
+    <simpleType name="学籍性质类型">
+        <restriction base="string">
+            <enumeration value="本科"></enumeration>
+            <enumeration value="研究生"></enumeration>
+            <enumeration value="博士生"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="入学年级类型">
+        <restriction base="string">
+            <length value="4"></length>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="学号类型">
+        <restriction base="string">
+            <length value="9"></length>
+        </restriction>
+    </simpleType>
+
+</schema>

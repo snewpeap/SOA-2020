@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://jw.nju.edu.cn/wsdl"
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+             xmlns:tns="http://jw.nju.edu.cn/wsdl"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:jw="http://jw.nju.edu.cn/schema"
+             xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+             xmlns:fault="http://jw.nju.edu.cn/wsdl/fault">
+    <types>
+        <xs:schema targetNamespace="http://jw.nju.edu.cn/schema">
+            <xs:include schemaLocation="../schema/ScoreList.xsd"/>
+        </xs:schema>
+        <xs:schema targetNamespace="http://jw.nju.edu.cn/schema">
+            <xs:include schemaLocation="../schema/Student.xsd"/>
+        </xs:schema>
+        <xs:schema targetNamespace="http://jw.nju.edu.cn/wsdl/fault">
+            <xs:include schemaLocation="../schema/Fault.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="getScoreListById">
+        <part name="studentId" element="jw:学号"/>
+    </message>
+    <message name="getScoreListByIdResponse">
+        <part name="scoreList" element="jw:课程成绩列表"/>
+    </message>
+    <message name="deleteScoreListById">
+        <part name="studentId" element="jw:学号"/>
+    </message>
+    <message name="deleteScoreListByIdResponse">
+        <part name="deletedScoreList" element="jw:课程成绩列表"/>
+    </message>
+    <message name="updateScoreList">
+        <part name="studentId" element="jw:课程成绩列表"/>
+    </message>
+    <message name="updateScoreListResponse">
+        <part name="updatedStudentScore" element="jw:课程成绩列表"/>
+    </message>
+    <message name="addScoreList">
+        <part name="studentId" element="jw:学生"/>
+    </message>
+    <message name="addScoreListResponse">
+        <part name="addedScoreList" element="jw:课程成绩列表"/>
+    </message>
+    <message name="StudentDoNotExistFault">
+        <part name="StudentDoNotExistFaultElement" element="fault:StudentDoNotExistFaultEle"/>
+    </message>
+    <message name="InvalidDataFault">
+        <part name="InvalidDataFaultElement" element="fault:InvalidDataFaultEle"/>
+    </message>
+    <message name="ScoreDoNotExistFault">
+        <part name="ScoreDoNotExistFaultElement" element="fault:ScoreDoNotExistFaultEle"/>
+    </message>
+    <message name="ScoreExistedFault">
+        <part name="ScoreExistedFaultElement" element="fault:ScoreExistedFaultEle"/>
+    </message>
+
+
+    <portType name="ScorePort">
+        <operation name="getScoreListById">
+            <input message="tns:getScoreListById" wsam:Action="score/getScoreListByIdRequest"/>
+            <output message="tns:getScoreListByIdResponse" wsam:Action="score/getScoreListByIdResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault"
+                   wsam:Action="score/StudentDoNotExistFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="score/InvalidDataFault"/>
+            <fault name="ScoreDoNotExistFault" message="tns:ScoreDoNotExistFault"
+                   wsam:Action="score/ScoreDoNotExistFault"/>
+        </operation>
+        <operation name="deleteScoreListById">
+            <input message="tns:deleteScoreListById" wsam:Action="score/deleteScoreListByIdRequest"/>
+            <output message="tns:deleteScoreListByIdResponse" wsam:Action="score/deleteScoreListByIdResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault"
+                   wsam:Action="score/StudentDoNotExistFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="score/InvalidDataFault"/>
+            <fault name="ScoreDoNotExistFault" message="tns:ScoreDoNotExistFault"
+                   wsam:Action="score/ScoreDoNotExistFault"/>
+        </operation>
+        <operation name="updateScoreList">
+            <input message="tns:updateScoreList" wsam:Action="ScoreList/updateScoreListRequest"/>
+            <output message="tns:updateScoreListResponse" wsam:Action="score/updateScoreListResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault"
+                   wsam:Action="score/StudentDoNotExistFault"/>
+            <fault name="ScoreDoNotExistFault" message="tns:ScoreDoNotExistFault"
+                   wsam:Action="score/ScoreDoNotExistFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="score/InvalidDataFault"/>
+        </operation>
+        <operation name="addScoreListById">
+            <input message="tns:addScoreList" wsam:Action="score/addScoreListRequest"/>
+            <output message="tns:addScoreListResponse" wsam:Action="score/addScoreListResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault"
+                   wsam:Action="score/StudentDoNotExistFault"/>
+            <fault name="ScoreExistedFault" message="tns:ScoreExistedFault" wsam:Action="score/ScoreExistedFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="score/InvalidDataFault"/>
+        </operation>
+    </portType>
+    <binding name="ScoreBinding" type="tns:ScorePort">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+
+        <operation name="getScoreListById">
+            <soap:operation soapAction="score/getScoreListById"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="StudentDoNotExistFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal"/>
+            </fault>
+            <fault name="ScoreDoNotExistFault">
+                <soap:fault name="ScoreDoNotExistFault" use="literal"/>
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="deleteScoreListById">
+            <soap:operation soapAction="score/deleteScoreListById"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="StudentDoNotExistFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal"/>
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal"/>
+            </fault>
+            <fault name="ScoreDoNotExistFault">
+                <soap:fault name="ScoreDoNotExistFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="updateScoreList">
+            <soap:operation soapAction="score/updateScoreList"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="StudentDoNotExistFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal"/>
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="addScoreListById">
+            <soap:operation soapAction="score/addScoreList"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="StudentExistedFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal"/>
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal"/>
+            </fault>
+            <fault name="ScoreExistedFault">
+                <soap:fault name="ScoreExistedFault" use="literal"/>
+            </fault>
+        </operation>
+
+    </binding>
+    <service name="ScoreService">
+        <port name="ScoreListPort" binding="tns:ScoreBinding">
+            <soap:address location="http://localhost:8080/ws/score"/>
+        </port>
+    </service>
+</definitions>

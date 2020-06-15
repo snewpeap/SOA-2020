@@ -1,0 +1,146 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://jw.nju.edu.cn/wsdl"
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+             xmlns:tns="http://jw.nju.edu.cn/wsdl"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:jw="http://jw.nju.edu.cn/schema"
+             xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+             xmlns:fault="http://jw.nju.edu.cn/wsdl/fault">
+    <types>
+        <xs:schema targetNamespace="http://jw.nju.edu.cn/schema" xmlns:jw="http://jw.nju.edu.cn/schema">
+            <xs:include schemaLocation="../schema/Student.xsd"/>
+        </xs:schema>
+        <xs:schema targetNamespace="http://jw.nju.edu.cn/wsdl/fault" xmlns:fault="http://jw.nju.edu.cn/wsdl/fault">
+            <xs:include schemaLocation="../schema/Fault.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="getStudentInfoById">
+        <part name="studentId" element="jw:学号"/>
+    </message>
+    <message name="getStudentInfoByIdResponse">
+        <part name="studentInfo" element="jw:学生"/>
+    </message>
+    <message name="deleteStudentInfoById">
+        <part name="studentId" element="jw:学号"/>
+    </message>
+    <message name="deleteStudentInfoByIdResponse">
+        <part name="deletedStudentInfo" element="jw:学生"/>
+    </message>
+    <message name="updateStudentInfo">
+        <part name="studentId" element="jw:学生"/>
+    </message>
+    <message name="updateStudentInfoResponse">
+        <part name="updatedStudentInfo" element="jw:学生"/>
+    </message>
+    <message name="addStudentInfo">
+        <part name="studentId" element="jw:学生"/>
+    </message>
+    <message name="addStudentInfoResponse">
+        <part name="addedStudentInfo" element="jw:学生"/>
+    </message>
+    <message name="StudentDoNotExistFault">
+        <part name="StudentDoNotExistFaultElement" element="fault:StudentDoNotExistFaultEle"/>
+    </message>
+    <message name="StudentExistedFault">
+        <part name="StudentExistedFaultElement" element="fault:StudentExistedFaultEle"/>
+    </message>
+    <message name="InvalidDataFault">
+        <part name="InvalidDataFaultElement" element="fault:InvalidDataFaultEle"/>
+    </message>
+    <portType name="StudentInfoPort">
+        <operation name="getStudentInfoById" >
+            <input message="tns:getStudentInfoById" wsam:Action="studentInfo/getStudentInfoByIdRequest"/>
+            <output message="tns:getStudentInfoByIdResponse" wsam:Action="studentInfo/getStudentInfoByIdResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault" wsam:Action="studentInfo/StudentDoNotExistFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="studentInfo/InvalidDataFault"/>
+        </operation>
+        <operation name="deleteStudentInfoById" >
+            <input message="tns:deleteStudentInfoById" wsam:Action="studentInfo/deleteStudentInfoByIdRequest"/>
+            <output message="tns:deleteStudentInfoByIdResponse" wsam:Action="studentInfo/deleteStudentInfoByIdResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault" wsam:Action="studentInfo/StudentDoNotExistFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="studentInfo/InvalidDataFault"/>
+        </operation>
+        <operation name="updateStudentInfoById" >
+            <input message="tns:updateStudentInfo" wsam:Action="studentInfo/updateStudentInfoByIdRequest"/>
+            <output message="tns:updateStudentInfoResponse" wsam:Action="studentInfo/updateStudentInfoByIdResponse"/>
+            <fault name="StudentDoNotExistFault" message="tns:StudentDoNotExistFault" wsam:Action="studentInfo/StudentDoNotExistFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="studentInfo/InvalidDataFault"/>
+        </operation>
+        <operation name="addStudentInfoById" >
+            <input message="tns:addStudentInfo" wsam:Action="studentInfo/addStudentInfoByIdRequest"/>
+            <output message="tns:addStudentInfoResponse" wsam:Action="studentInfo/addStudentInfoByIdResponse"/>
+            <fault name="StudentExistedFault" message="tns:StudentExistedFault" wsam:Action="studentInfo/StudentExistedFault"/>
+            <fault name="InvalidDataFault" message="tns:InvalidDataFault" wsam:Action="studentInfo/InvalidDataFault"/>
+        </operation>
+    </portType>
+    <binding name="StudentInfoBinding" type="tns:StudentInfoPort">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+
+        <operation name="getStudentInfoById">
+            <soap:operation soapAction="student/getStudentInfoById"/>
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="StudentDoNotExistedFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal" />
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal" />
+            </fault>
+        </operation>
+        <operation name="deleteStudentInfoById">
+            <soap:operation soapAction="student/deleteStudentInfoById"/>
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="StudentDoNotExistFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal" />
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal" />
+            </fault>
+        </operation>
+        <operation name="updateStudentInfoById">
+            <soap:operation soapAction="student/updateStudentInfoById"/>
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="StudentDoNotExistFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal" />
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal" />
+            </fault>
+        </operation>
+        <operation name="addStudentInfoById">
+            <soap:operation soapAction="student/addStudentInfoById"/>
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="StudentExistedFault">
+                <soap:fault name="StudentDoNotExistFault" use="literal" />
+            </fault>
+            <fault name="InvalidDataFault">
+                <soap:fault name="InvalidDataFault" use="literal" />
+            </fault>
+        </operation>
+
+    </binding>
+    <service name="StudentInfoService">
+        <port name="StudentInfoPort" binding="tns:StudentInfoBinding">
+            <soap:address location="http://localhost:8080/ws/student" />
+        </port>
+    </service>
+</definitions>

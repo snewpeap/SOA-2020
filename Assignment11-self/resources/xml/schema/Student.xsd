@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema"
+        xmlns:tns="http://jw.nju.edu.cn/schema"
+        xmlns:nju="http://www.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+    <import namespace="http://www.nju.edu.cn/schema" schemaLocation="PersonInfo.xsd"/>
+    <include schemaLocation="ScoreList.xsd"/>
+    <include schemaLocation="StudentID.xsd"/>
+
+    <element name="学生信息" type="tns:学生信息类型"/>
+    <complexType name="学生信息类型">
+        <sequence>
+            <element name="个人信息" type="nju:个人基本信息类型"/>
+            <element name="学号" type="tns:学号类型"/>
+            <element name="个人课程">
+                <complexType>
+                    <sequence minOccurs="0" maxOccurs="unbounded">
+                        <element name="课程" type="tns:个人课程信息"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="权限" type="tns:权限类型"/>
+        </sequence>
+    </complexType>
+
+	<!-- 个人所选课程信息，包含课程信息和该门课程的各种成绩信息列表 -->
+    <complexType name="个人课程信息">
+        <sequence>
+            <element name="课程信息" type="tns:课程信息类型"/>
+            <element name="课程成绩列表" type="tns:课程成绩列表类型"/>
+        </sequence>
+    </complexType>
+
+	<!-- 长度为9的学号类型 -->
+<!--    <simpleType name="学号类型">-->
+<!--    	<restriction base="string">-->
+<!--            <length value="9"/>-->
+<!--    	</restriction>-->
+<!--    </simpleType>-->
+
+    <!-- 权限信息 -->
+    <complexType name="权限类型">
+        <attribute name="图书馆" type="boolean"/>
+        <attribute name="教学楼A" type="boolean"/>
+        <attribute name="教学楼B" type="boolean"/>
+        <attribute name="学生食堂" type="boolean"/>
+        <attribute name="教职工食堂" type="boolean"/>
+    </complexType>
+</schema>

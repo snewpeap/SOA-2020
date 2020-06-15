@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jw.nju.edu.cn/schema"
+        xmlns:tns="http://jw.nju.edu.cn/schema"
+        elementFormDefault="qualified">
+    <!--    <include schemaLocation="./Department.xsd"></include>-->
+    <include schemaLocation="./Student.xsd"></include>
+    <include schemaLocation="ScoreList.xsd"></include>
+
+    <complexType name="getScore">
+        <sequence>
+            <element name="学生学号" type="tns:学号类型"></element>
+            <element name="课程编号" type="tns:课程编号类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="updateScore">
+        <sequence>
+            <element name="学生学号" type="tns:学号类型"></element>
+            <element name="课程编号" type="tns:课程编号类型"></element>
+            <element name="成绩性质" type="tns:成绩性质类型"></element>
+            <element name="得分" type="tns:得分类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="addScore">
+        <sequence>
+            <element name="课程成绩" type="tns:课程成绩类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="addScores">
+        <sequence>
+            <element name="课程成绩列表" type="tns:课程成绩列表类型"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="deleteScore">
+        <sequence>
+            <element name="学生学号" type="tns:学号类型"></element>
+            <element name="课程编号" type="tns:课程编号类型"></element>
+            <element name="成绩性质" type="tns:成绩性质类型"></element>
+        </sequence>
+    </complexType>
+
+</schema>

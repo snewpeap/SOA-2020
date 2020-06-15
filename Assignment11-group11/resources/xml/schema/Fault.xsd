@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jw.nju.edu.cn/wsdl/fault"
+        xmlns:tns="http://jw.nju.edu.cn/wsdl/fault"
+        xmlns:jw="http://jw.nju.edu.cn/schema"
+        xmlns:nju="http://www.nju.edu.cn/schema"
+        xmlns:authority="http://www.nju.edu.cn/security/schema"
+        elementFormDefault="qualified">
+    <import namespace="http://jw.nju.edu.cn/schema" schemaLocation="./Student.xsd"></import>
+    <import namespace="http://www.nju.edu.cn/security/schema" schemaLocation="./Authority.xsd"></import>
+    <import namespace="http://www.nju.edu.cn/schema" schemaLocation="./Department.xsd"></import>
+
+
+    <element name="InvalidDataFaultEle" type="tns:InvalidDataFaultType" default="Invalid Data"></element>
+    <element name="StudentDoNotExistFaultEle" type="tns:StudentDoNotExistFaultType"></element>
+    <element name="StudentExistedFaultEle" type="tns:StudentExistedFaultType"></element>
+    <element name="PwdFaultEle" type="tns:PwdFaultType"></element>
+    <element name="AuthorityDoNotExistFaultEle" type="tns:AuthorityDoNotExistFaultType"></element>
+
+    <element name="ScoreExistedFaultEle" type="tns:ScoreExistedFaultType"></element>
+    <element name="ScoreDoNotExistFaultEle" type="tns:ScoreDoNotExistFaultType"></element>
+    <element name="CourseDoNotExistFaultEle" type="tns:CourseDoNotExistFaultType"></element>
+    <element name="EmailPwdFaultEle" type="tns:EmailPwdFaultType"></element>
+    <element name="NotNjuFaultEle" type="tns:NotNjuFaultType"></element>
+
+    <complexType name="EmailPwdFaultType">
+        <sequence>
+            <element name="email" type="nju:联系邮箱类型"></element>
+            <element name="fault" default="密码错误"></element>
+        </sequence>
+    </complexType>
+
+    <simpleType name="NotNjuFaultType">
+        <restriction base="string"></restriction>
+    </simpleType>
+
+    <simpleType name="CourseDoNotExistFaultType">
+        <restriction base="string"></restriction>
+    </simpleType>
+
+    <simpleType name="ScoreExistedFaultType">
+        <restriction base="string"></restriction>
+    </simpleType>
+
+    <simpleType name="ScoreDoNotExistFaultType">
+        <restriction base="string"></restriction>
+    </simpleType>
+
+    <simpleType name="InvalidDataFaultType">
+        <restriction base="string"></restriction>
+    </simpleType>
+
+    <complexType name="StudentDoNotExistFaultType">
+        <sequence>
+            <element name="学号" type="jw:学号类型"></element>
+            <element name="错误" default="学号不存在"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="PwdFaultType">
+        <sequence>
+            <element name="studentId" type="jw:学号类型"></element>
+            <element name="fault" default="密码错误"></element>
+        </sequence>
+    </complexType>
+
+
+    <complexType name="AuthorityDoNotExistFaultType">
+        <sequence>
+            <element name="权限编号" type="authority:权限分类类型"></element>
+            <element name="错误" default="权限编号不存在"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="StudentExistedFaultType">
+        <sequence>
+            <element name="学号" type="jw:学号类型"></element>
+            <element name="错误" default="学生信息已存在"></element>
+        </sequence>
+    </complexType>
+
+
+</schema>
