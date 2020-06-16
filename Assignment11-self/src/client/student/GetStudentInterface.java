@@ -1,7 +1,8 @@
 
-package client;
+package client.student;
 
-import entity.课程成绩列表类型;
+import client.InvalidDataFault;
+import entity.学生信息类型;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -17,24 +18,24 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "GetScoreInterface", targetNamespace = "http://jw.nju.edu.cn/wsdl")
+@WebService(name = "GetStudentInterface", targetNamespace = "http://jw.nju.edu.cn/wsdl")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
-    ObjectFactory.class
+    StudentObjectFactory.class
 })
-public interface GetScoreInterface {
+public interface GetStudentInterface {
 
 
     /**
      * 
      * @param parameters
      * @return
-     *     returns entity.课程成绩列表类型
+     *     returns temp.学生信息类型
      * @throws InvalidDataFault
      */
     @WebMethod
-    @WebResult(name = "课程成绩列表", targetNamespace = "http://jw.nju.edu.cn/schema", partName = "parameters")
-    public 课程成绩列表类型 opGetScore(
+    @WebResult(name = "studentInfo", targetNamespace = "http://jw.nju.edu.cn/schema", partName = "parameters")
+    public 学生信息类型 opGetStudent(
         @WebParam(name = "studentNumber", targetNamespace = "http://jw.nju.edu.cn/schema", partName = "parameters")
         String parameters)
         throws InvalidDataFault

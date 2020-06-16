@@ -9,8 +9,8 @@
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jw.nju.edu.cn/schema"
                    xmlns:nju="http://www.nju.edu.cn/schema">
-            <xs:include schemaLocation="../schema/StudentList.xsd"/>
-            <xs:import namespace="http://www.nju.edu.cn/schema" schemaLocation="../schema/PersonInfo.xsd"/>
+            <xs:include schemaLocation="./schema/StudentList.xsd"/>
+            <xs:import namespace="http://www.nju.edu.cn/schema" schemaLocation="./schema/PersonInfo.xsd"/>
             <xs:element name="studentNumber" type="jw:学号类型"/>
             <xs:element name="invalidDataError" type="xs:string"/>
             <xs:element name="ifSuccess" type="xs:string"/>

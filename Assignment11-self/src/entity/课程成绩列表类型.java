@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@SuppressWarnings("NonAsciiCharacters")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "课程成绩列表类型", propOrder = {
     "课程成绩"

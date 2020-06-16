@@ -1,6 +1,7 @@
 
-package client;
+package client.score;
 
+import client.InvalidDataFault;
 import entity.课程成绩列表类型;
 
 import javax.jws.WebMethod;
@@ -20,7 +21,7 @@ import javax.xml.ws.Holder;
 @WebService(name = "UpdateScoreInterface", targetNamespace = "http://jw.nju.edu.cn/wsdl")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
-    ObjectFactory.class
+    ScoreObjectFactory.class
 })
 public interface UpdateScoreInterface {
 
