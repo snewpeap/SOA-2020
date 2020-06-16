@@ -4,7 +4,6 @@ import startFromWSDL.types.课程成绩列表类型;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -20,8 +19,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 public interface UpdateScoreInterface {
 
     @WebMethod
-    @WebResult(name = "课程成绩列表", targetNamespace = "http://jw.nju.edu.cn/schema", partName = "parameters")
-    public 课程成绩列表类型 opUpdateScore(
+    public void opUpdateScore(
             @WebParam(partName = "parameters", mode = WebParam.Mode.INOUT, name = "课程成绩列表", targetNamespace = "http://jw.nju.edu.cn/schema")
                     javax.xml.ws.Holder<课程成绩列表类型> parameters
     ) throws InvalidDataFault;
