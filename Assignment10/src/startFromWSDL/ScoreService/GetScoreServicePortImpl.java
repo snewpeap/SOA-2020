@@ -1,5 +1,6 @@
 package startFromWSDL.ScoreService;
 
+import com.sun.xml.ws.developer.SchemaValidation;
 import startFromWSDL.ServiceBasis;
 import startFromWSDL.types.个人课程信息;
 import startFromWSDL.types.学生信息类型;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
         targetNamespace = "http://jw.nju.edu.cn/wsdl",
         wsdlLocation = "xml/startFromWSDL/ScoreService.wsdl",
         endpointInterface = "startFromWSDL.ScoreService.GetScoreInterface")
-
+@SchemaValidation
 public class GetScoreServicePortImpl extends ServiceBasis implements GetScoreInterface {
 
     private static final Logger LOG = Logger.getLogger(GetScoreServicePortImpl.class.getName());

@@ -1,5 +1,6 @@
 package startFromWSDL.ScoreService;
 
+import com.sun.xml.ws.developer.SchemaValidation;
 import startFromWSDL.ServiceBasis;
 import startFromWSDL.types.*;
 
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
         targetNamespace = "http://jw.nju.edu.cn/wsdl",
         wsdlLocation = "xml/startFromWSDL/ScoreService.wsdl",
         endpointInterface = "startFromWSDL.ScoreService.UpdateScoreInterface")
-
+@SchemaValidation
 public class UpdateScoreServicePortImpl extends ServiceBasis implements UpdateScoreInterface {
 
     private static final Logger LOG = Logger.getLogger(UpdateScoreServicePortImpl.class.getName());
@@ -61,7 +62,8 @@ public class UpdateScoreServicePortImpl extends ServiceBasis implements UpdateSc
                                         break;
                                     }
                                     if (allGrades.size() - 1 == i) {
-                                        allGrades.add(createNewGrade(paramCourseId, paramGradeType, studentId, paramGrade));
+                                        personalGradeType.get课程成绩列表().get课程成绩()
+                                                .add(createNewGrade(paramCourseId, paramGradeType, studentId, paramGrade));
                                         break;
                                     }
                                 }

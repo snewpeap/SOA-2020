@@ -1,5 +1,6 @@
 package startFromWSDL.StudentService;
 
+import com.sun.xml.ws.developer.SchemaValidation;
 import startFromWSDL.ServiceBasis;
 import startFromWSDL.types.学生信息类型;
 import startFromWSDL.types.学生列表类型;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
                       targetNamespace = "http://jw.nju.edu.cn/wsdl",
                       wsdlLocation = "xml/startFromWSDL/StudentService.wsdl",
                       endpointInterface = "startFromWSDL.StudentService.UpdateStudentInterface")
-
+@SchemaValidation
 public class UpdateStudentServicePortImpl extends ServiceBasis implements UpdateStudentInterface {
 
     private static final Logger LOG = Logger.getLogger(UpdateStudentServicePortImpl.class.getName());

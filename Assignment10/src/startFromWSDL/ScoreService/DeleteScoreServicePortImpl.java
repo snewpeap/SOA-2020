@@ -1,5 +1,6 @@
 package startFromWSDL.ScoreService;
 
+import com.sun.xml.ws.developer.SchemaValidation;
 import startFromWSDL.ServiceBasis;
 import startFromWSDL.types.*;
 
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
         targetNamespace = "http://jw.nju.edu.cn/wsdl",
         wsdlLocation = "xml/startFromWSDL/ScoreService.wsdl",
         endpointInterface = "startFromWSDL.ScoreService.DeleteScoreInterface")
-
+@SchemaValidation
 public class DeleteScoreServicePortImpl extends ServiceBasis implements DeleteScoreInterface {
 
     private static final Logger LOG = Logger.getLogger(DeleteScoreServicePortImpl.class.getName());
